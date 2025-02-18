@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from 'framer-motion';
+
 
 export default function Headers() {
     return (
@@ -15,9 +17,14 @@ export default function Headers() {
                     />
                 </svg>
             </div>
-            <div className="title">
+            <motion.div className="title"
+                initial={{ y: '-250px'}}
+                animate={{ y: '10px'}}
+                transition={{ delay: 0.3 , type:'spring' , stiffness:150 }}
+                
+            >
                 <h1>OpenCode Pizza</h1>
-            </div>
+            </motion.div>
         </header>
     );
 }

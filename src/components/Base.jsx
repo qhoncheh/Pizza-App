@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 
 export default function Base({ addBase, pizza }) {
     const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
     // addBase([])
 
     return (
-        <div className="base container">
+        <motion.div className="base container"
+            initial={{ x: '100vw'}}
+            animate={{ x: 0}}
+            transition={{ type: 'spring' , duration: 2}}
+        >
 
             <h3>Step 1: Choose Your Base</h3>
             <ul>
@@ -20,16 +26,20 @@ export default function Base({ addBase, pizza }) {
             </ul>
 
             {pizza.base && (
-                <div className="next">
+                <motion.div className="next"
+                    initial={{ x:'-100vw'}}
+                    animate={{ x:'0'}}
+                    transition={{ type: 'spring' , stiffness:110}}
+                >
                     <Link to="/">
                         <button>Back</button>
                     </Link>
                     <Link to="/toppings">
                         <button>Next</button>
                     </Link>
-                </div>
+                </motion.div>
             )}
 
-        </div>
+        </motion.div>
     );
 }
