@@ -1,16 +1,23 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function Home() {
     return (
-        <div className="home container">
-            <h2>
+        <motion.div className="home container"
+            animate={{ marginTop: '300'}}
+        >
+            <motion.h2
+                animate={{ fontSize : '55px' , color: '#ff2994'}}
+            >
                 Welcome to OpenCode Pizza
-            </h2>
+            </motion.h2>
             <Link to="/base">
-                <button>
+                <motion.button
+                    animate={{ rotateZ: 360 , scale: 1.5}}
+                >
                     Create Your Pizza
-                </button>
+                </motion.button>
             </Link>
-        </div>
+        </motion.div>
     );
 }
