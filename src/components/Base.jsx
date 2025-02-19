@@ -2,14 +2,26 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
+
+const containerVarient = {
+    hidden : {
+        opacity: 0,
+        x: '100vw',
+    },
+    visible : {
+        opacity: 1,
+        x: 0
+    }
+}
+
 export default function Base({ addBase, pizza }) {
     const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
     // addBase([])
 
     return (
         <motion.div className="base container"
-            initial={{ x: '100vw'}}
-            animate={{ x: 0}}
+        variants={containerVarient}
+        initial="hidden"
             transition={{ type: 'spring' , duration: 2}}
         >
 
