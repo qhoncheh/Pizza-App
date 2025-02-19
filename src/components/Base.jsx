@@ -18,9 +18,12 @@ export default function Base({ addBase, pizza }) {
                 {bases.map(base => {
                     let spanClass = pizza.base === base ? 'active' : '';
                     return (
-                        <li key={base} onClick={() => addBase(base)}>
+                        <motion.li key={base} onClick={() => addBase(base)}
+                            whileHover={{ scale:1.3 ,  color: '#f8e112' , originX:0 }}
+                            transition={{ type: 'spring' , stiffness: 300}}
+                        >
                             <span className={spanClass}>{base}</span>
-                        </li>
+                        </motion.li>
                     )
                 })}
             </ul>
@@ -37,7 +40,8 @@ export default function Base({ addBase, pizza }) {
                             whileHover={{ 
                                 scale : 1.1 ,
                                  textShadow:'0px 0px 8px rgb(255,255,255)',
-                                 boxShadow:'0px 0px 8px rgb(255,255,255)'
+                                 boxShadow:'0px 0px 8px rgb(255,255,255)',
+                                 marginRight:10
                             }}
                         >Back</motion.button>
                     </Link>
@@ -46,7 +50,9 @@ export default function Base({ addBase, pizza }) {
                             whileHover={{ 
                                 scale : 1.1 ,
                                  textShadow:'0px 0px 8px rgb(255,255,255)',
-                                 boxShadow:'0px 0px 8px rgb(255,255,255)'
+                                 boxShadow:'0px 0px 8px rgb(255,255,255)',
+                                 marginLeft:10
+
                             }}
                         >Next</motion.button>
                     </Link>
